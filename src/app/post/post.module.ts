@@ -8,9 +8,10 @@ import { CreateComponent } from './create/create.component';
 import { EditComponent } from './edit/edit.component';
   
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DeleteComponent } from './delete/delete.component';
   
 @NgModule({
-  declarations: [IndexComponent, ViewComponent, CreateComponent, EditComponent],
+  declarations: [IndexComponent, ViewComponent, CreateComponent, EditComponent, DeleteComponent],
   imports: [
     CommonModule,
     PostRoutingModule,
