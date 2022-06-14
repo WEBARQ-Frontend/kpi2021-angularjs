@@ -1,21 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-  
-import { AppRoutingModule } from './app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+
 import { AppComponent } from './app.component';
-  
-import { PostModule } from './post/post.module';
-  
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { ContactManagerComponent } from './components/contact-manager/contact-manager.component';
+import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { EditContactComponent } from './components/edit-contact/edit-contact.component';
+import { ViewContactComponent } from './components/view-contact/view-contact.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent,
+    ContactManagerComponent,
+    AddContactComponent,
+    EditContactComponent,
+    ViewContactComponent,
+    SpinnerComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule,
-    PostModule,
-    HttpClientModule
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

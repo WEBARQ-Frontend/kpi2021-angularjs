@@ -1,34 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
+import { AppComponent } from './app.component';
+import { AddContactComponent } from './components/add-contact/add-contact.component';
+import { ContactManagerComponent } from './components/contact-manager/contact-manager.component';
+import { EditContactComponent } from './components/edit-contact/edit-contact.component';
+import { ViewContactComponent } from './components/view-contact/view-contact.component';
 
 const routes: Routes = [
-  {
-    path:'login',
-    component:LoginComponent
-  },
-  {
-    path:'register',
-    component:RegisterComponent
-  },
-  {
-    path:'admin',
-    loadChildren:()=>import('./admin/admin.module').then(mod=>mod.AdminModule)
-  },
-  {
-    path:'public',
-    loadChildren:()=>import('./public/public.module').then(mod=>mod.PublicModule)
-  },
-  {
-    path:'',
-    pathMatch:'full',
-    redirectTo:'/login'
-  }
+  {path : '', redirectTo : 'contacts/admin', pathMatch : 'full'},
+  {path : 'contacts/admin', component : ContactManagerComponent},
+  {path : 'contacts/add', component : AddContactComponent},
+  {path : 'contacts/edit/:contactId', component : EditContactComponent},
+  {path : 'contacts/view/:contactId', component : ViewContactComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  declarations: [
+    AddContactComponent,
+    ContactManagerComponent,
+    EditContactComponent,
+    ViewContactComponent
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppRoutingModule { }
+export class AppModule { }
